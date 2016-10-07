@@ -18,7 +18,7 @@ router.get('/burgers', function (req, res) {
 });
 
 router.post('/burgers/create', function (req, res) {
-	burger.create(['burger_name', 'sleepy'], [req.body.burger_name, req.body.sleepy], function () {
+	burger.create(['burger_name'], [req.body.name], function () {
 		res.redirect('/burgers');
 	});
 });
@@ -28,7 +28,7 @@ router.put('/burgers/update/:id', function (req, res) {
 
 	console.log('condition', condition);
 
-	burger.update({ sleepy: req.body.sleepy }, condition, function () {
+	burger.update({ devoured: req.body.devoured }, condition, function () {
 		res.redirect('/burgers');
 	});
 });
